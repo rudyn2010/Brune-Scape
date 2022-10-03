@@ -13,19 +13,16 @@ const NavBar = () => {
           Home
         </NavLink>
       </div>
-      <div>
-        <NavLink to='/users' exact={true} activeClassName='active'>
-          Users
-        </NavLink>
-      </div>
-      <div>
-        <LoginFormModal />
-      </div>
-      <div>
-        <GetStartedModal />
-      </div>
-      <div>
-        <LogoutButton />
+      <div className='modal-area'>
+        <div className='modal-div-nb gray-bc'>
+          <LoginFormModal />
+        </div>
+        <div className='modal-div-nb orng-bc'>
+          <GetStartedModal />
+        </div>
+        <div className='modal-div-nb'>
+          <LogoutButton />
+        </div>
       </div>
     </div>
   );

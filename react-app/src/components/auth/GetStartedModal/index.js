@@ -4,17 +4,23 @@ import React, { useState } from 'react';
 
 import { Modal } from '../../../context/Modal'
 import GetStartedForm from './GetStartedForm';
+import './GetStartedModal.css';
 
 
 function GetStartedModal() {
+
   const [showModal, setShowModal] = useState(false);
+
+  const closeModal = () => {
+    setShowModal(false);
+  }
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Get Started</button>
+      <button className='signup-form-btn' onClick={() => setShowModal(true)}>Get Started</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <GetStartedForm />
+          <GetStartedForm closeModal={ closeModal }/>
         </Modal>
       )}
     </>
