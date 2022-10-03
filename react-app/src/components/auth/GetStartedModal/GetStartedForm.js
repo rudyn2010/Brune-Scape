@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 // import { signUp } from '../../store/session';
 import { signUp } from '../../../store/session';
 
-const GetStartedForm = () => {
+const GetStartedForm = ({ closeModal }) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -19,6 +19,9 @@ const GetStartedForm = () => {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
+      }
+      else {
+        closeModal();
       }
     }
   };

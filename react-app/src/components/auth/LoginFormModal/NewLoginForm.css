@@ -1,0 +1,44 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.input-areas-lf {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.input-label {
+    font: 14px;
+    font-family: "Mont Bold", Mont, sans-serif;
+    color: lightslategray;
+}
+
+.input-field {
+    background-color: transparent;
+    border: none;
+    width: 340px;
+    height: 34px;
+}
+
+.login-form-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.login-button {
+    border: none;
+    color: white;
+    background-color: #CECECE;
+    width: 144px;
+    height: 48px;
+    border-radius: 34px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #FF8A47;
+}

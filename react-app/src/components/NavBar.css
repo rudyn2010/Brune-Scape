@@ -1,3 +1,24 @@
 .navbar {
     display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    height: 4.5em;
+    justify-content: space-between;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 7;
+}
+
+.modal-area {
+    display: flex;
+}
+
+.modal-div-nb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 123px;
+    height: 72px;
 }
