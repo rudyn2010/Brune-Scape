@@ -7,9 +7,17 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
+
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+
+    #relationships
+    classes = db.relationship("Class", back_populates="owner")
+    decks = db.relationship("Deck", back_populates="owner")
 
     @property
     def password(self):
@@ -25,6 +33,10 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            "classes": [s_class.id for s_class in self.classes],
+            "decks": [deck.id for deck in self.decks]
         }
