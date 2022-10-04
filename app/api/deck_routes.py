@@ -23,7 +23,7 @@ def all_decks():
     decks = Deck.query.all()
 
     return {
-        "all_decks": [deck.to_dict() for deck in decks]
+        "decks": [deck.to_dict() for deck in decks]
     }
 
 
@@ -42,7 +42,7 @@ def decks_current_user():
     decks = Deck.query.filter(current_user.id == Deck.owner_id).all()
 
     return {
-        "curr_decks": [deck.to_dict() for deck in decks]
+        "decks": [deck.to_dict() for deck in decks]
     }
 
 

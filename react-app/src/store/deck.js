@@ -1,5 +1,6 @@
 //Types:
 const GET_ALL_DECKS = "decks/getallDecks";
+const GET_CURR_DECKS = "decks/getCurrDecks";
 const GET_ONE_DECK = "decks/readDeck";
 const CREATE_DECK = "decks/createDeck";
 const UPDATE_DECK = "decks/updateDeck";
@@ -10,6 +11,13 @@ const DELETE_DECK = "decks/deleteDeck";
 const actionGetAllDecks = (decks) => {
     return {
         type: GET_ALL_DECKS,
+        decks
+    }
+};
+
+const actionGetCurrDecks = (decks) => {
+    return {
+        type: GET_CURR_DECKS,
         decks
     }
 };
@@ -46,10 +54,21 @@ const actionDeleteDeck = (deckId) => {
 // Thunks:
 //Get All Decks
 export const getAllDecks = () => async (dispatch) => {
-    const response = await fetch('/api/decks')
+    const response = await fetch('/api/decks/')
     if (response.ok) {
         const decks = await response.json()
         dispatch(actionGetAllDecks(decks))
+        return decks;
+    }
+    return response;
+};
+
+//Get Curr Users Decks
+export const getCurrUsersDecks = () => async (dispatch) => {
+    const response = await fetch('/api/decks/current_user')
+    if (response.ok) {
+        const decks = await response.json()
+        dispatch(actionGetCurrDecks(decks))
         return decks;
     }
     return response;
@@ -122,6 +141,12 @@ const deckReducer = (state = initialState, action) => {
     let newState = {};
     switch (action.type) {
         case GET_ALL_DECKS: {
+            action.decks.decks.forEach((deck) => {
+                newState[deck.id] = deck
+            })
+            return newState
+        }
+        case GET_CURR_DECKS: {
             action.decks.decks.forEach((deck) => {
                 newState[deck.id] = deck
             })
