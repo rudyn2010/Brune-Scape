@@ -51,7 +51,7 @@ def decks_current_user():
 @login_required
 def create_new_deck():
     form = DeckForm()
-    form['crsf_token'].data = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         new_deck = Deck(

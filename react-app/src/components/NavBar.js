@@ -13,6 +13,11 @@ const NavBar = () => {
           Home
         </NavLink>
       </div>
+      <div>
+        <NavLink to='/users' exact={true} activeClassName='active'>
+          Users
+        </NavLink>
+      </div>
       <div className='modal-area'>
         <div className='modal-div-nb gray-bc'>
           <LoginFormModal />

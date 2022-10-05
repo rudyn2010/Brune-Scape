@@ -20,6 +20,15 @@ function GetStartedModal() {
       <button className='signup-form-btn' onClick={() => setShowModal(true)}>Get Started</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
+          <div className='login-modal-hdr'>
+            <div
+            className='x'
+            onClick={() => setShowModal(false)}
+            > X </div>
+            <div className='header-lfm blue-text'>
+              Get Started
+            </div>
+          </div>
           <GetStartedForm closeModal={ closeModal }/>
         </Modal>
       )}

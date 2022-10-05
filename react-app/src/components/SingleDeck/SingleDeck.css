@@ -1,0 +1,15 @@
+.deck-container {
+    display: flex;
+    justify-content: space-between;
+    height: 75px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+}
+
+.icon-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

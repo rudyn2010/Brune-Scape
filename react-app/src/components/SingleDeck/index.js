@@ -1,0 +1,20 @@
+import "./SingleDeck.css";
+
+
+const SingleDeck = ({ deck }) => {
+
+    return (
+        <div className="deck-container">
+            <div>
+                {deck?.name}
+            </div>
+            <div className="icon-bar">
+                <div> E </div>
+                <div> D </div>
+                <div> Arrow </div>
+            </div>
+        </div>
+    )
+};
+
+export default SingleDeck;

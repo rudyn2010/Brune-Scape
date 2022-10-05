@@ -98,6 +98,13 @@ export const createADeck = (data) => async (dispatch) => {
         const deck = await response.json();
         dispatch(actionCreateDeck(deck));
         return deck;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+          return data;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     };
     return response;
 };

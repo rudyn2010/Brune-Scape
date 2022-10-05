@@ -1,0 +1,38 @@
+.decks-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100vh;
+    border: 1px solid red;
+}
+
+.decks-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10%;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.decks-text {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.decks-plus {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.decks-display-container {
+    height: 90%;
+    border: 1px solid blue
+}
+
+.single-deck-div {
+
+}
