@@ -6,6 +6,8 @@ import { signUp } from '../../../store/session';
 
 const GetStartedForm = ({ closeModal }) => {
   const [errors, setErrors] = useState([]);
+  const [ firstname, setFirstname ] = useState('');
+  const [ lastname, setLastname ] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +18,7 @@ const GetStartedForm = ({ closeModal }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(firstname, lastname, username, email, password));
       if (data) {
         setErrors(data)
       }
@@ -24,6 +26,14 @@ const GetStartedForm = ({ closeModal }) => {
         closeModal();
       }
     }
+  };
+
+  const updateFirstname = (e) => {
+    setFirstname(e.target.value);
+  };
+
+  const updateLastname = (e) => {
+    setLastname(e.target.value);
   };
 
   const updateUsername = (e) => {
@@ -47,50 +57,78 @@ const GetStartedForm = ({ closeModal }) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='login-form' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>User Name</label>
+      <div className='input-areas-lf'>
+        <label className="input-label" >First Name</label>
         <input
+          className='input-field'
+          type='text'
+          placeholder='First Name'
+          value={firstname}
+          onChange={updateFirstname}
+        ></input>
+      </div>
+      <div className='input-areas-lf'>
+        <label className="input-label" >Last Name</label>
+        <input
+          className='input-field'
+          type='text'
+          placeholder='Last Name'
+          value={lastname}
+          onChange={updateLastname}
+        ></input>
+      </div>
+      <div className='input-areas-lf'>
+        <label className="input-label" >Username</label>
+        <input
+          className='input-field'
           type='text'
           name='username'
-          onChange={updateUsername}
+          placeholder='Username'
           value={username}
+          onChange={updateUsername}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div className='input-areas-lf'>
+        <label className="input-label" >E-mail</label>
         <input
+          className='input-field'
           type='text'
           name='email'
-          onChange={updateEmail}
+          placeholder='E-mail'
           value={email}
+          onChange={updateEmail}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div className='input-areas-lf'>
+        <label className="input-label" >Password</label>
         <input
+          className='input-field'
           type='password'
           name='password'
-          onChange={updatePassword}
+          placeholder='Password'
           value={password}
+          onChange={updatePassword}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div className='input-areas-lf'>
+        <label className="input-label" >Repeat Password</label>
         <input
+          className='input-field'
           type='password'
           name='repeat_password'
-          onChange={updateRepeatPassword}
+          placeholder='Repeat Password'
           value={repeatPassword}
+          onChange={updateRepeatPassword}
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='login-button' type='submit'>Sign Up</button>
     </form>
   );
 };
