@@ -75,13 +75,13 @@ def create_new_deck():
 @login_required
 def edit_a_deck(deckId):
     form = DeckForm()
-    form['crsf_token'].data = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     edited_deck = Deck.query.get_or_404(deckId)
 
     if form.validate_on_submit():
-        edited_deck.class_id = form.data['class_id'],
-        edited_deck.owner_id = current_user.id,
+        edited_deck.class_id = form.data['class_id']
+        edited_deck.owner_id = current_user.id
         edited_deck.name = form.data['name']
 
         db.session.commit()

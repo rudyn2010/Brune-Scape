@@ -1,28 +1,29 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createADeck } from "../../store/deck";
+import { updateADeck } from "../../store/deck";
 
-const CreateDeckForm = ({ closeModal }) => {
+const EditDeckForm = ({ deck, closeModal }) => {
 
     const dispatch = useDispatch();
 
-    const [ name, setName ] = useState("");
-    const [ classId, setClassId ] = useState("");
-
-    const [ errors, setErrors ] = useState([]);
+    const [ name, setName ] = useState(deck?.name);
+    const [ classId, setClassId ] = useState(deck?.class_id);
 
     const currUser = useSelector(state => state.session.user);
+
+    const [ errors, setErrors ] = useState([]);
 
     const onSubmit = async (e) => {
         e.preventDefault();
 
         let new_deck = {
+            deckId: deck.id,
             name,
             class_id: classId,
             owner_id: currUser.id
         }
 
-        const data = await dispatch(createADeck(new_deck));
+        const data = await dispatch(updateADeck(new_deck));
 
         if (data && data.errors) {
           setErrors(data);
@@ -63,6 +64,6 @@ const CreateDeckForm = ({ closeModal }) => {
             </div>
         </form>
     )
-}
+};
 
-export default CreateDeckForm;
+export default EditDeckForm;
