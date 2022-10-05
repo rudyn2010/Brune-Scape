@@ -1,3 +1,4 @@
+import DeleteDeckModal from "../DeleteDeckModal";
 import EditDeckModal from "../EditDeckModal";
 import "./SingleDeck.css";
 
@@ -11,9 +12,11 @@ const SingleDeck = ({ deck }) => {
             </div>
             <div className="icon-bar">
                 <div>
-                    <EditDeckModal deck={ deck }/>
+                    <EditDeckModal deck={ deck } />
                 </div>
-                <div> D </div>
+                <div>
+                    <DeleteDeckModal deck={ deck } />
+                </div>
                 <div> Arrow </div>
             </div>
         </div>
