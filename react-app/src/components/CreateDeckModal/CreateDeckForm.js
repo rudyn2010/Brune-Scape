@@ -18,14 +18,14 @@ const CreateDeckForm = ({ closeModal }) => {
 
         let new_deck = {
             name,
-            class_id: classId,
+            // class_id: classId,
             owner_id: currUser.id
         }
 
         const data = await dispatch(createADeck(new_deck));
 
         if (data && data.errors) {
-          setErrors(data);
+          setErrors(data.errors);
         } else {
           closeModal();
         }
@@ -48,16 +48,17 @@ const CreateDeckForm = ({ closeModal }) => {
                 onChange={(e) => setName(e.target.value)}
                 />
             </div>
-            <div className='input-areas-lf'>
+            {/* <div className='input-areas-lf'>
                 <label className="input-label" >Class Id</label>
                 <input
                 className='input-field'
                 type='number'
+                min={0}
                 placeholder='Class Id'
                 value={classId}
                 onChange={(e) => setClassId(e.target.value)}
                 />
-            </div>
+            </div> */}
             <div className="login-form-buttons">
                 <button className='login-button' type='submit'>Create</button>
             </div>

@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
     #relationships
     classes = db.relationship("Class", back_populates="owner")
     decks = db.relationship("Deck", back_populates="owner")
+    cards = db.relationship("Card", back_populates="owner")
 
     @property
     def password(self):
@@ -38,5 +39,6 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             "classes": [s_class.id for s_class in self.classes],
-            "decks": [deck.id for deck in self.decks]
+            "decks": [deck.id for deck in self.decks],
+            "cards": [card.id for card in self.cards]
         }
