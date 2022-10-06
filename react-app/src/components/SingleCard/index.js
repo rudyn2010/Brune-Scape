@@ -1,3 +1,4 @@
+import EditCardModal from "../EditCardModal";
 
 
 const SingleCard = ({ card }) => {
@@ -7,9 +8,12 @@ const SingleCard = ({ card }) => {
             <div>
                 {card?.question}
             </div>
+            <div>
+                {card?.answer}
+            </div>
             <div className="icon-bar">
                 <div>
-                    E
+                    <EditCardModal card={ card }/>
                 </div>
                 <div>
                     D
