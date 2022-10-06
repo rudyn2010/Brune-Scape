@@ -16,12 +16,11 @@ const DecksPage = () => {
     const curr_decks = useSelector((state) => Object.values(state.decks));
 
     const display_curr_decks = curr_decks.map((deck, i) => (
-        <NavLink
+        <div
         key={ i }
-        to={`/decks/${deck.id}/cards`}
         className="single-deck-div">
             <SingleDeck deck={ deck }/>
-        </NavLink>
+        </div>
     ));
 
     useEffect(() => {

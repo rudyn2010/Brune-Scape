@@ -60,7 +60,7 @@ const EditDeckForm = ({ deck, closeModal }) => {
                 />
             </div> */}
             <div className="login-form-buttons">
-                <button className='login-button' type='submit'>Create</button>
+                <button className='login-button' type='submit'>EDIT</button>
             </div>
         </form>
     )

@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+import DeleteCardModal from "../DeleteCardModal";
 import EditCardModal from "../EditCardModal";
 
 
@@ -16,9 +18,8 @@ const SingleCard = ({ card }) => {
                     <EditCardModal card={ card }/>
                 </div>
                 <div>
-                    D
+                    <DeleteCardModal card={ card }/>
                 </div>
-                <div> Arrow </div>
             </div>
         </div>
     )
