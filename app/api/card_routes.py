@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required, current_user
 from app.models import db, User, Class, Deck, Card
-from app.forms import DeckForm
+from app.forms import DeckForm, CardForm
 
 card_routes = Blueprint('cards', __name__)
 
@@ -17,14 +17,86 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-# #Get all Cards
-# @card_routes.route("/")
-# def all_cards():
-#     return
+#Get all Cards
+@card_routes.route("/")
+def all_cards():
+    cards = Card.query.all()
+
+    return {
+        "cards": [card.to_dict() for card in cards]
+    }
 
 
-# #Get all Cards Curr User
-# @card_routes.route("/current_user")
-# @login_required
-# def curr_user_cards():
-#     cards = Card.query.filter(current_user.id == Card.)
+#Get Card by Id
+@card_routes.route("/<int:cardId>")
+@login_required
+def get_single_card(cardId):
+    card = Card.query.get_or_404(cardId)
+    return card.to_dict()
+
+
+# Create a Card
+@card_routes.route("/new", methods=["POST"])
+@login_required
+def create_new_card():
+    form = CardForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        new_card = Card(
+            question = form.data["question"],
+            answer = form.data["answer"],
+            owner_id = current_user.id,
+            deck_id = form.data["deck_id"]
+        )
+        db.session.add(new_card)
+        db.session.commit()
+
+        return new_card.to_dict()
+
+    else:
+        return {
+            'errors': validation_errors_to_error_messages(form.errors)
+        }, 401
+
+
+# Update a Card
+@card_routes.route("/<int:cardId>", methods=["PUT"])
+@login_required
+def edit_a_card(cardId):
+    form = CardForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    edited_card = Card.query.get_or_404(cardId)
+
+    if form.validate_on_submit():
+        edited_card.question = form.data["question"]
+        edited_card.answer = form.data["answer"]
+
+        db.session.commit()
+
+        return edited_card.to_dict()
+
+    else:
+        return {
+            'errors': validation_errors_to_error_messages(form.errors)
+        }, 401
+
+
+# Delete a Card
+@card_routes.route("/<int:cardId>", methods=["DELETE"])
+@login_required
+def delete_a_card(cardId):
+    card_to_delete = Card.query.get_or_404(cardId)
+
+    if current_user.id == card_to_delete.owner_id:
+        db.session.delete(card_to_delete)
+        db.session.commit()
+
+        return {
+            'message': "Successfully Deleted!"
+        }
+    else:
+        return {
+            'message': "Unauthorized User", "Status Code": 403
+        }
