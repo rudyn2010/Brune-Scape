@@ -57,6 +57,12 @@ def seed_cards():
         question = "Which company makes RuneScape?",
         answer = "Jagex"
         )
+    card10 = Card(
+        deck_id = 4,
+        owner_id=2,
+        question = "Which company makes RuneScape 3?",
+        answer = "Jagex"
+        )
 
 
     db.session.add(card1)
@@ -68,6 +74,7 @@ def seed_cards():
     db.session.add(card7)
     db.session.add(card8)
     db.session.add(card9)
+    db.session.add(card10)
 
     db.session.commit()
 

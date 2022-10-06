@@ -18,11 +18,16 @@ def seed_decks():
         owner_id=1,
         name='General',
         )
+    deck4 = Deck(
+        owner_id=2,
+        name='General 2',
+        )
 
 
     db.session.add(deck1)
     db.session.add(deck2)
     db.session.add(deck3)
+    db.session.add(deck4)
 
     db.session.commit()
 

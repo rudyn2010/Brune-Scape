@@ -27,6 +27,17 @@ def all_cards():
     }
 
 
+#Get Curr User Cards
+@card_routes.route("/current_user")
+@login_required
+def curr_user_cards():
+    cards = Card.query.filter(current_user.id == Card.owner_id).all()
+
+    return {
+        "cards": [card.to_dict() for card in cards]
+    }
+
+
 #Get Card by Id
 @card_routes.route("/<int:cardId>")
 @login_required
