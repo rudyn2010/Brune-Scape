@@ -14,12 +14,14 @@ const DecksPage = () => {
     const [ isLoaded, setIsLoaded ] = useState(false);
 
     const curr_decks = useSelector((state) => Object.values(state.decks));
-    console.log("*******************", curr_decks)
 
     const display_curr_decks = curr_decks.map((deck, i) => (
-        <div key={ i } className="single-deck-div">
+        <NavLink
+        key={ i }
+        to={`/decks/${deck.id}/cards`}
+        className="single-deck-div">
             <SingleDeck deck={ deck }/>
-        </div>
+        </NavLink>
     ));
 
     useEffect(() => {

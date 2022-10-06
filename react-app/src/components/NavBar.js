@@ -18,6 +18,11 @@ const NavBar = () => {
           Users
         </NavLink>
       </div>
+      <div>
+        <NavLink to='/users_cards' exact={true} activeClassName='active'>
+          Users Cards
+        </NavLink>
+      </div>
       <div className='modal-area'>
         <div className='modal-div-nb gray-bc'>
           <LoginFormModal />

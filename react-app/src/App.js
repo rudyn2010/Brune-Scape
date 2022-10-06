@@ -8,6 +8,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import DecksPage from './components/DecksPage';
 import { getAllCards, getCurrUsersCards } from './store/card';
+import CardsPage from './components/CardsPage';
 
 
 function App() {
@@ -17,7 +18,6 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      await dispatch(getCurrUsersCards());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -39,6 +39,9 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
           <DecksPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/decks/:deckId/cards'>
+          <CardsPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

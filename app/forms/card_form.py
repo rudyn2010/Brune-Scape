@@ -9,10 +9,10 @@ from wtforms.fields import (
 class CardForm(FlaskForm):
     question = StringField("question", validators=[
         DataRequired(),
-        Length(min=10, max=255, message="Name must be between 10 and 255 characters")
+        Length(min=3, max=255, message="Question must be between 3 and 255 characters")
         ])
     answer = StringField("answer", validators=[
         DataRequired(),
-        Length(min=10, max=255, message="Name must be between 10 and 255 characters")
+        Length(min=2, max=255, message="Answer must be between 2 and 255 characters")
         ])
     deck_id = IntegerField("deck_id", validators=[DataRequired()])
