@@ -20,6 +20,7 @@ const SingleDeck = ({ deck }) => {
                 <div>
                     <DeleteDeckModal deck={ deck } />
                 </div>
+                <div></div>
             </div>
         </div>
     )
