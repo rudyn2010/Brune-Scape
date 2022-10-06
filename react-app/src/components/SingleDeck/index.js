@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import DeleteDeckModal from "../DeleteDeckModal";
 import EditDeckModal from "../EditDeckModal";
 import "./SingleDeck.css";
@@ -7,9 +8,11 @@ const SingleDeck = ({ deck }) => {
 
     return (
         <div className="deck-container">
-            <div>
-                {deck?.name}
-            </div>
+            <NavLink to={`/decks/${deck.id}/cards`}>
+                <div>
+                    {deck?.name}
+                </div>
+            </NavLink>
             <div className="icon-bar">
                 <div>
                     <EditDeckModal deck={ deck } />
@@ -17,7 +20,6 @@ const SingleDeck = ({ deck }) => {
                 <div>
                     <DeleteDeckModal deck={ deck } />
                 </div>
-                <div> Arrow </div>
             </div>
         </div>
     )

@@ -5,47 +5,62 @@ from app.models import db, Card
 def seed_cards():
     card1 = Card(
         deck_id = 1,
+        owner_id=1,
         question = "What particular slayer equipment do you need to wear while killing a Smoke Devil?",
         answer = "A face mask!"
         )
     card2 = Card(
         deck_id = 1,
+        owner_id=1,
         question = "Who drops dragon boots?",
         answer = "Spiritual Mages!"
         )
     card3 = Card(
         deck_id = 1,
+        owner_id=1,
         question = "What are the 9 different Slayer Masters?",
         answer = "Turael, Spria, Krystilia, Mazchna, Vannaka, Chaeldar, Konar, Nieve, Duradel"
         )
     card4 = Card(
         deck_id = 2,
+        owner_id=1,
         question = "Which quest unlocks the Dragon Scimitar?",
         answer = "Monkey Madness"
         )
     card5 = Card(
         deck_id = 2,
+        owner_id=1,
         question = "Which quest unlocks the Rune Platebody?",
         answer = "Dragon Slayer"
         )
     card6 = Card(
         deck_id = 3,
+        owner_id=1,
         question = "What does the G.E. stand for?",
         answer = "Grand Exchange"
         )
     card7 = Card(
         deck_id = 3,
+        owner_id=1,
         question = "What are the 3 combat styles?",
         answer = "Range, Melee, Magic"
         )
     card8 = Card(
         deck_id = 3,
+        owner_id=1,
         question = "What is the cost of membership?",
         answer = "11 dollars"
         )
     card9 = Card(
         deck_id = 3,
+        owner_id=1,
         question = "Which company makes RuneScape?",
+        answer = "Jagex"
+        )
+    card10 = Card(
+        deck_id = 4,
+        owner_id=2,
+        question = "Which company makes RuneScape 3?",
         answer = "Jagex"
         )
 
@@ -59,6 +74,7 @@ def seed_cards():
     db.session.add(card7)
     db.session.add(card8)
     db.session.add(card9)
+    db.session.add(card10)
 
     db.session.commit()
 
