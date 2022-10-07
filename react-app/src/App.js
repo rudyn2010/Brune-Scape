@@ -3,12 +3,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
 import DecksPage from './components/DecksPage';
 import { getAllCards, getCurrUsersCards } from './store/card';
 import CardsPage from './components/CardsPage';
+import SplashPage from './components/SplashPage';
 
 
 function App() {
@@ -28,16 +27,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <Route path="/" exact={true} >
+          <SplashPage />
+        </Route>
+        <ProtectedRoute path='/decks' exact={true} >
           <DecksPage />
         </ProtectedRoute>
         <ProtectedRoute path='/decks/:deckId/cards'>

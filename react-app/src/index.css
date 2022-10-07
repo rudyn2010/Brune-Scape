@@ -1,4 +1,16 @@
 /* TODO Add site wide styles */
+* {
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .general-button {
     align-items: center;
     background-color: #29A5DC;
@@ -19,8 +31,7 @@
     text-align: center;
     text-transform: uppercase;
     transition: all 0.3s;
-  }
-
+}
 
 .orng-bc {
   background-color: #FF8A47;
