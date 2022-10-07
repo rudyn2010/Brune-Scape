@@ -1,8 +1,8 @@
 .navbar {
     display: flex;
     align-items: center;
-    background-color: #FFFFFF;
-    height: 4.5em;
+    background: black;
+    height: 98px;
     justify-content: space-between;
     left: 0;
     right: 0;
@@ -11,14 +11,7 @@
     z-index: 7;
 }
 
-.modal-area {
-    display: flex;
-}
-
-.modal-div-nb {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 123px;
+.navbar-logo {
     height: 72px;
+    width: 72px;
 }
