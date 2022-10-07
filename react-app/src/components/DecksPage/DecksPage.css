@@ -1,20 +1,35 @@
 .decks-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10%;
-    margin-right: 10%;
-    height: 100vh;
-    border: 1px solid red;
+    background: url('https://www.runescape.com/img/rsp777/bg2.jpg') repeat-y center top;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("https://www.runescape.com/img/rsp777/bg2.jpg");
+  margin: 0 auto;
+  overflow-y: hidden;
+  padding: 0 50px;
+  width: 915px;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-top {
+    height: 50px;
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_765_top.gif) no-repeat center top;
 }
 
 .decks-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 10%;
-    width: 100%;
-    border: 1px solid red;
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif) repeat-y top center;
+    /* height: 10%;
+    width: 100%; */
+    background: url('https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif') repeat-y top center;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: url("https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif");
+    padding: 50px 75px;
+    padding-bottom: 0px;
+    position: relative;
 }
+
 
 .decks-text {
     display: flex;
@@ -29,10 +44,24 @@
 }
 
 .decks-display-container {
-    height: 90%;
-    border: 1px solid blue
+    background: url('https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif') repeat-y top center;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: url("https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif");
+    padding: 50px 75px;
+    position: relative;
 }
 
-.single-deck-div {
+/* .decks-display-container::before,.decks-display-container::after {
+    background: url('https://www.runescape.com/img/rsp777/scroll/backdrop_765_top.gif') no-repeat center top;
+    content: '';
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: -11px;
+    width: 100%;
+    } */
 
+.scroll-bottom {
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_765_bottom.gif) no-repeat center bottom;
+    height: 50px;
 }

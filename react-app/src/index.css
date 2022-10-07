@@ -9,6 +9,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
 .general-button {
@@ -42,5 +43,9 @@ body {
 }
 
 .blue-text {
-  color: #324A6B;
+  color: #7B4F17;
+}
+
+.cursor {
+  cursor: pointer;
 }

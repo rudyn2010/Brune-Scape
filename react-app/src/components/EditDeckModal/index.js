@@ -13,7 +13,9 @@ function EditDeckModal({ deck }) {
 
   return (
     <>
-      <div className='' onClick={() => setShowModal(true)}> E </div>
+      <div className='' onClick={() => setShowModal(true)}>
+        <i className='cursor fa-solid fa-pen-to-square'></i>
+      </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
             <div className='login-modal-hdr'>

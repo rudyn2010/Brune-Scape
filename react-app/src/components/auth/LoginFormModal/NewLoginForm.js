@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 // import { login } from '../../store/session';
 import { login } from '../../../store/session';
 import "./NewLoginForm.css"
@@ -11,6 +11,7 @@ const NewLoginForm = ({ closeModal }) => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const NewLoginForm = ({ closeModal }) => {
       setErrors(data);
     } else {
       closeModal();
+      history.push("/decks")
     }
   };
 

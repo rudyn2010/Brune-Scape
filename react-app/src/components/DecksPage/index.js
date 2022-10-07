@@ -30,6 +30,7 @@ const DecksPage = () => {
 
     return isLoaded && (
         <div className="decks-container">
+            <div className="scroll-top"></div>
             <div className="decks-header">
                 <div className="decks-text">
                     DECKS
@@ -41,6 +42,7 @@ const DecksPage = () => {
             <div className="decks-display-container">
                 { display_curr_decks }
             </div>
+            <div className="scroll-bottom"></div>
         </div>
     )
 };
