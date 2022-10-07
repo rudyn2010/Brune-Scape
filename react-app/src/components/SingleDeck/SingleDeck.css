@@ -5,7 +5,17 @@
     padding-left: 10px;
     padding-right: 10px;
     align-items: center;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #6B7B17;
+}
+
+.deck-link {
+    text-decoration: none;
+    cursor: pointer;
+    color: #7B4F17;
+}
+
+.deck-text {
+    font-size: 22px;
 }
 
 .icon-bar {

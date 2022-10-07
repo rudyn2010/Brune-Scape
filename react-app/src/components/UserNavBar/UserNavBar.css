@@ -1,0 +1,9 @@
+.user-navbar-container {
+    background: url('https://www.runescape.com/img/rsp777/bg2.jpg') repeat-y center top;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("https://www.runescape.com/img/rsp777/bg2.jpg");
+  margin: 0 auto;
+  overflow-y: hidden;
+  padding: 0 50px;
+  width: 915px;
+}

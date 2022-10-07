@@ -8,8 +8,10 @@ const SingleDeck = ({ deck }) => {
 
     return (
         <div className="deck-container">
-            <NavLink to={`/decks/${deck.id}/cards`}>
-                <div>
+            <NavLink
+            className="deck-link"
+            to={`/decks/${deck.id}/cards`}>
+                <div className="deck-text">
                     {deck?.name}
                 </div>
             </NavLink>

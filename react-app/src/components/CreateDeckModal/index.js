@@ -13,7 +13,9 @@ function CreateDeckModal() {
 
   return (
     <>
-      <div className='' onClick={() => setShowModal(true)}> + </div>
+      <div className='' onClick={() => setShowModal(true)}>
+        <i class="fa-solid fa-plus"></i>
+      </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
             <div className='login-modal-hdr'>

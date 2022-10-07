@@ -21,7 +21,9 @@ function DeleteDeckModal({ deck }) {
 
     return (
     <>
-        <div className='' onClick={() => setShowModal(true)}> D </div>
+        <div className='' onClick={() => setShowModal(true)}>
+            <i className='cursor fa-solid fa-trash'></i>
+        </div>
         {showModal && (
         <Modal onClose={() => setShowModal(false)}>
             <div className='login-modal-hdr'>

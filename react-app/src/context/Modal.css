@@ -20,8 +20,27 @@
 
 #modal-content {
     position: absolute;
-    background-color:white;
+    /* background-color:white; */
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif) repeat-y top center;
     max-width: 800px;
     padding: 30px;
-    border-radius: 22px;
+    border-radius: 34px;
+}
+
+#modal-content::before, #modal-content::after {
+    background: url('https://www.runescape.com/img/rsp777/scroll/backdrop_765_top.gif') no-repeat center top;
+    content: '';
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: -11px;
+    width: 100%;
+    background-size: 100% 50px;
+}
+
+#modal-content::after {
+    background: url('https://www.runescape.com/img/rsp777/scroll/backdrop_765_bottom.gif') no-repeat center bottom;
+    bottom: -11px;
+    top: auto;
+    background-size: 100% 50px;
 }

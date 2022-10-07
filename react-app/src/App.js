@@ -8,6 +8,7 @@ import DecksPage from './components/DecksPage';
 import { getAllCards, getCurrUsersCards } from './store/card';
 import CardsPage from './components/CardsPage';
 import SplashPage from './components/SplashPage';
+import UserNavBar from './components/UserNavBar';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <SplashPage />
         </Route>
         <ProtectedRoute path='/decks' exact={true} >
+          <UserNavBar />
           <DecksPage />
         </ProtectedRoute>
         <ProtectedRoute path='/decks/:deckId/cards'>
