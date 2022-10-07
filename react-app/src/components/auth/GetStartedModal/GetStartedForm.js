@@ -1,38 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
-// import { signUp } from '../../store/session';
 import { signUp } from '../../../store/session';
+import hitsplat from "../../../images/hitsplat.png"
+
 
 const GetStartedForm = ({ closeModal }) => {
 
   const [errors, setErrors] = useState([]);
   const [ firstname, setFirstname ] = useState('');
   const [ lastname, setLastname ] = useState('');
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // useEffect(() => {
-  //   errors = []
-
-
-
-  // }, []);
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    // if (password !== repeatPassword) {
-    //   errors.push("The password and confirmed password need to match!")
-    // }
-    console.log("***************errors****************", errors)
+
+    setIsSubmitted(true);
+
+    if (errors.length) {
+      return
+    }
+
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(firstname, lastname, username, email, password));
+      const data = await dispatch(signUp(firstname, lastname, email, password));
       if (data) {
         setErrors(data)
       }
@@ -45,7 +43,7 @@ const GetStartedForm = ({ closeModal }) => {
 
   useEffect(() => {
     let errors = []
-    if (password!==repeatPassword) errors.push("The password and confirmed password need to match!")
+    if (password!==repeatPassword) errors.push("Password: The password and confirmed password need to match!")
     setErrors(errors)
   }, [ password, repeatPassword ]);
 
@@ -55,10 +53,6 @@ const GetStartedForm = ({ closeModal }) => {
 
   const updateLastname = (e) => {
     setLastname(e.target.value);
-  };
-
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -79,9 +73,16 @@ const GetStartedForm = ({ closeModal }) => {
 
   return (
     <form className='login-form' onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+      <div className='error-container'>
+        {isSubmitted && errors.map((error, ind) => (
+          <div key={ind}>
+            <div className='error-div'>
+              <img
+              className='error-splat'
+              src={hitsplat} />
+              {error.split(": ")[1]}
+            </div>
+          </div>
         ))}
       </div>
       <div className='input-areas-lf'>
@@ -103,18 +104,6 @@ const GetStartedForm = ({ closeModal }) => {
           placeholder='Last Name'
           value={lastname}
           onChange={updateLastname}
-          required={true}
-        ></input>
-      </div>
-      <div className='input-areas-lf'>
-        <label className="input-label" >Username</label>
-        <input
-          className='input-field'
-          type='text'
-          name='username'
-          placeholder='Username'
-          value={username}
-          onChange={updateUsername}
           required={true}
         ></input>
       </div>

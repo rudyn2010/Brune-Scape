@@ -49,3 +49,21 @@ body {
 .cursor {
   cursor: pointer;
 }
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.error-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.error-splat {
+  width: 25px;
+  height: 25px;
+}
