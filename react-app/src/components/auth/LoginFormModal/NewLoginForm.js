@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
-// import { login } from '../../store/session';
 import { login } from '../../../store/session';
 import "./NewLoginForm.css"
+import hitsplat from "../../../images/hitsplat.png"
 
 const NewLoginForm = ({ closeModal }) => {
   const [errors, setErrors] = useState([]);
@@ -15,6 +15,7 @@ const NewLoginForm = ({ closeModal }) => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
@@ -38,9 +39,16 @@ const NewLoginForm = ({ closeModal }) => {
 
   return (
     <form className='login-form' onSubmit={onLogin}>
-      <div>
+      <div className='error-container'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind}>
+            <div className='error-div'>
+              <img
+              className='error-splat'
+              src={hitsplat} />
+              {error.split(": ")[1]}
+            </div>
+          </div>
         ))}
       </div>
       <div className='input-areas-lf'>

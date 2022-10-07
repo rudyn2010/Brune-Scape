@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { createACard, updateACard } from "../../store/card";
+import hitsplat from "../../images/hitsplat.png"
 
 const EditCardForm = ({ card, closeModal }) => {
 
@@ -36,9 +37,16 @@ const EditCardForm = ({ card, closeModal }) => {
 
     return (
         <form className='login-form' onSubmit={onSubmit}>
-            <div>
+            <div className='error-container'>
                 {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
+                    <div key={ind}>
+                        <div className='error-div'>
+                            <img
+                            className='error-splat'
+                            src={hitsplat} />
+                            {error.split(": ")[1]}
+                        </div>
+                    </div>
                 ))}
             </div>
             <div className='input-areas-lf'>

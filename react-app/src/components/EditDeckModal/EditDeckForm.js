@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateADeck } from "../../store/deck";
+import hitsplat from "../../images/hitsplat.png"
 
 const EditDeckForm = ({ deck, closeModal }) => {
 
@@ -34,9 +35,16 @@ const EditDeckForm = ({ deck, closeModal }) => {
 
     return (
         <form className='login-form' onSubmit={onSubmit}>
-            <div>
+            <div className='error-container'>
                 {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
+                    <div key={ind}>
+                        <div className='error-div'>
+                            <img
+                            className='error-splat'
+                            src={hitsplat} />
+                            {error.split(": ")[1]}
+                        </div>
+                    </div>
                 ))}
             </div>
             <div className='input-areas-lf'>

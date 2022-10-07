@@ -6,21 +6,18 @@ def seed_users():
     demo = User(
         first_name="Demo",
         last_name="Lition",
-        username='Demo',
         email='demo@aa.io',
         password='password'
         )
     marnie = User(
         first_name="Marnie",
         last_name="Barney",
-        username='marnie',
         email='marnie@aa.io',
         password='password'
         )
     bobbie = User(
         first_name="Bob",
         last_name="Builder",
-        username='bobbie',
         email='bobbie@aa.io',
         password='password'
         )
