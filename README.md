@@ -15,7 +15,7 @@
 
 [User Stories](https://github.com/rudyn2010/Brune-Scape/wiki/USER-STORIES)
 
-[Wireframes](https://github.com/rudyn2010/Brune-Scape/wiki/Wireframe)
+[Wireframes](https://github.com/rudyn2010/Brune-Scape/wiki/Wireframes)
 
 
 ## Tech Stack:
