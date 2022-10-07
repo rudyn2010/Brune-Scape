@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: cca217294588
-Revises: 
+Revises:
 Create Date: 2022-10-05 14:13:17.219727
 
 """
@@ -22,12 +22,10 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('first_name', sa.String(length=50), nullable=False),
     sa.Column('last_name', sa.String(length=50), nullable=False),
-    sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('username')
+    sa.UniqueConstraint('email')
     )
     op.create_table('classes',
     sa.Column('id', sa.Integer(), nullable=False),
