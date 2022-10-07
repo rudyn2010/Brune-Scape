@@ -37,6 +37,7 @@ function App() {
           <DecksPage />
         </ProtectedRoute>
         <ProtectedRoute path='/decks/:deckId/cards'>
+          <UserNavBar />
           <CardsPage />
         </ProtectedRoute>
       </Switch>

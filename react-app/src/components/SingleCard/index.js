@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DeleteCardModal from "../DeleteCardModal";
 import EditCardModal from "../EditCardModal";
@@ -5,13 +6,20 @@ import EditCardModal from "../EditCardModal";
 
 const SingleCard = ({ card }) => {
 
+    const [ showAnswer, setShowAnswer ] = useState(false);
+
+    const toggle = () => {
+        setShowAnswer((prev) => !prev);
+    };
+
+
     return (
         <div className="deck-container">
             <div>
-                {card?.question}
+                {showAnswer ? card?.answer : card?.question}
             </div>
             <div>
-                {card?.answer}
+                <button onClick={toggle}>Show</button>
             </div>
             <div className="icon-bar">
                 <div>

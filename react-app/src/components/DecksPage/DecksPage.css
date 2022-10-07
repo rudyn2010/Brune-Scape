@@ -6,6 +6,7 @@
   overflow-y: hidden;
   padding: 0 50px;
   width: 915px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
