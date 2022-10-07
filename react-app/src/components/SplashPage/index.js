@@ -2,8 +2,18 @@ import "./SplashPage.css"
 import background from "../../images/trusted.png"
 import LoginFormModal from "../auth/LoginFormModal";
 import GetStartedModal from "../auth/GetStartedModal";
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const SplashPage = () => {
+
+    const history = useHistory();
+
+    const sessionUser = useSelector((state) => state.session.user);
+
+    if (sessionUser) {
+        history.push("/decks")
+    }
 
     return (
         <div className="background" style={ {backgroundImage: `url(${background})`} } >
