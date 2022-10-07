@@ -7,15 +7,15 @@
 
 ## Project Wiki Links:
 
-[API Routes](https://github.com/rudyn2010/BruneScape/wiki/API-ROUTES)
+[API Routes](https://github.com/rudyn2010/Brune-Scape/wiki/API-ROUTES)
 
-[DB Schema](https://github.com/rudyn2010/BruneScape/wiki/DB-Schema)
+[DB Schema](https://github.com/rudyn2010/Brune-Scape/wiki/DB-SCHEMA)
 
-[Features List](https://github.com/rudyn2010/BruneScape/wiki/MVP-FEATURES-LIST)
+[Features List](https://github.com/rudyn2010/Brune-Scape/wiki/MVP-FEATURES-LIST)
 
-[User Stories](https://github.com/rudyn2010/BruneScape/wiki/USER-STORIES)
+[User Stories](https://github.com/rudyn2010/Brune-Scape/wiki/USER-STORIES)
 
-[Wireframes](https://github.com/rudyn2010/BruneScape/wiki/Wireframe)
+[Wireframes](https://github.com/rudyn2010/Brune-Scape/wiki/Wireframe)
 
 
 ## Tech Stack:
