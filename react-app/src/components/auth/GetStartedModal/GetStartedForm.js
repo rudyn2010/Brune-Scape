@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 // import { signUp } from '../../store/session';
 import { signUp } from '../../../store/session';
 
 const GetStartedForm = ({ closeModal }) => {
+
   const [errors, setErrors] = useState([]);
   const [ firstname, setFirstname ] = useState('');
   const [ lastname, setLastname ] = useState('');
@@ -12,12 +13,24 @@ const GetStartedForm = ({ closeModal }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // useEffect(() => {
+  //   errors = []
+
+
+
+  // }, []);
+
   const onSignUp = async (e) => {
     e.preventDefault();
+    // if (password !== repeatPassword) {
+    //   errors.push("The password and confirmed password need to match!")
+    // }
+    console.log("***************errors****************", errors)
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstname, lastname, username, email, password));
       if (data) {
@@ -29,6 +42,12 @@ const GetStartedForm = ({ closeModal }) => {
       }
     }
   };
+
+  useEffect(() => {
+    let errors = []
+    if (password!==repeatPassword) errors.push("The password and confirmed password need to match!")
+    setErrors(errors)
+  }, [ password, repeatPassword ]);
 
   const updateFirstname = (e) => {
     setFirstname(e.target.value);
@@ -73,6 +92,7 @@ const GetStartedForm = ({ closeModal }) => {
           placeholder='First Name'
           value={firstname}
           onChange={updateFirstname}
+          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
@@ -83,6 +103,7 @@ const GetStartedForm = ({ closeModal }) => {
           placeholder='Last Name'
           value={lastname}
           onChange={updateLastname}
+          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
@@ -94,17 +115,19 @@ const GetStartedForm = ({ closeModal }) => {
           placeholder='Username'
           value={username}
           onChange={updateUsername}
+          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
         <label className="input-label" >E-mail</label>
         <input
           className='input-field'
-          type='text'
+          type='email'
           name='email'
           placeholder='E-mail'
           value={email}
           onChange={updateEmail}
+          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
@@ -116,6 +139,7 @@ const GetStartedForm = ({ closeModal }) => {
           placeholder='Password'
           value={password}
           onChange={updatePassword}
+          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
