@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createADeck } from "../../store/deck";
 import hitsplat from "../../images/hitsplat.png"
@@ -6,16 +6,22 @@ import hitsplat from "../../images/hitsplat.png"
 const CreateDeckForm = ({ closeModal }) => {
 
     const dispatch = useDispatch();
+    const [ errors, setErrors ] = useState([]);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const [ name, setName ] = useState("");
     const [ classId, setClassId ] = useState("");
-
-    const [ errors, setErrors ] = useState([]);
 
     const currUser = useSelector(state => state.session.user);
 
     const onSubmit = async (e) => {
         e.preventDefault();
+
+        setIsSubmitted(true)
+
+        if (errors.length) {
+            return
+        }
 
         let new_deck = {
             name,
@@ -32,19 +38,26 @@ const CreateDeckForm = ({ closeModal }) => {
         }
     };
 
+    useEffect(() => {
+        let errors = []
+        if (name.length < 2 || name.length > 50) errors.push("Name: Deck Name must be between 1 - 50 chars")
+
+        setErrors(errors)
+      }, [ name ]);
+
     return (
         <form className='login-form' onSubmit={onSubmit}>
             <div className='error-container'>
-            {errors.map((error, ind) => (
-                <div key={ind}>
-                    <div className='error-div'>
-                        <img
-                        className='error-splat'
-                        src={hitsplat} />
-                        {error.split(": ")[1]}
+                {isSubmitted && errors.map((error, ind) => (
+                    <div key={ind}>
+                        <div className='error-div'>
+                            <img
+                            className='error-splat'
+                            src={hitsplat} />
+                            {error.split(": ")[1]}
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
             </div>
             <div className='input-areas-lf'>
                 <label className="input-label" >Name</label>

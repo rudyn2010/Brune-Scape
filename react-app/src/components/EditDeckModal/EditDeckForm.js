@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateADeck } from "../../store/deck";
 import hitsplat from "../../images/hitsplat.png"
@@ -13,9 +13,15 @@ const EditDeckForm = ({ deck, closeModal }) => {
     const currUser = useSelector(state => state.session.user);
 
     const [ errors, setErrors ] = useState([]);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
 
     const onSubmit = async (e) => {
         e.preventDefault();
+
+        setIsSubmitted(true)
+
+        if (errors.length) return
 
         let new_deck = {
             deckId: deck.id,
@@ -33,10 +39,17 @@ const EditDeckForm = ({ deck, closeModal }) => {
         }
     };
 
+    useEffect(() => {
+        let errors = []
+        if (name.length < 2 || name.length > 50) errors.push("Name: Deck Name must be between 1 - 50 chars")
+
+        setErrors(errors)
+      }, [ name ]);
+
     return (
         <form className='login-form' onSubmit={onSubmit}>
             <div className='error-container'>
-                {errors.map((error, ind) => (
+                {isSubmitted && errors.map((error, ind) => (
                     <div key={ind}>
                         <div className='error-div'>
                             <img

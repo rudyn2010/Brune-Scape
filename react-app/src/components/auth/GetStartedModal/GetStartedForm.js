@@ -7,18 +7,18 @@ import hitsplat from "../../../images/hitsplat.png"
 
 const GetStartedForm = ({ closeModal }) => {
 
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const [ firstname, setFirstname ] = useState('');
   const [ lastname, setLastname ] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const user = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
-  const history = useHistory();
-
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -43,9 +43,17 @@ const GetStartedForm = ({ closeModal }) => {
 
   useEffect(() => {
     let errors = []
+    // if (!firstname) errors.push("Firstname: Enter your First Name")
+    // if (!lastname) errors.push("Lastname: Enter your Last Name")
+    if (firstname.length < 2 || firstname.length > 50) errors.push("Firstname: Firstname must be between 1 - 50 chars")
+    if (lastname.length > 50 || lastname.length < 2) errors.push("Lastname: Lastname must be between 1 - 50 chars")
+    if (/[^a-zA-Z]/.test(firstname)) errors.push('Firstname must contain alpha characters only')
+    if (/[^a-zA-Z]/.test(lastname)) errors.push('Lastname must contain alpha characters only')
+    if (!password) errors.push("Password: Please enter your password")
+    if (!repeatPassword) errors.push("RPassword: Please re-enter your password")
     if (password!==repeatPassword) errors.push("Password: The password and confirmed password need to match!")
     setErrors(errors)
-  }, [ password, repeatPassword ]);
+  }, [ firstname, lastname, password, repeatPassword ]);
 
   const updateFirstname = (e) => {
     setFirstname(e.target.value);
@@ -90,10 +98,11 @@ const GetStartedForm = ({ closeModal }) => {
         <input
           className='input-field'
           type='text'
+          min={3}
+          max={50}
           placeholder='First Name'
           value={firstname}
           onChange={updateFirstname}
-          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
@@ -101,10 +110,11 @@ const GetStartedForm = ({ closeModal }) => {
         <input
           className='input-field'
           type='text'
+          min={3}
+          max={50}
           placeholder='Last Name'
           value={lastname}
           onChange={updateLastname}
-          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
@@ -116,7 +126,6 @@ const GetStartedForm = ({ closeModal }) => {
           placeholder='E-mail'
           value={email}
           onChange={updateEmail}
-          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
@@ -128,22 +137,20 @@ const GetStartedForm = ({ closeModal }) => {
           placeholder='Password'
           value={password}
           onChange={updatePassword}
-          required={true}
         ></input>
       </div>
       <div className='input-areas-lf'>
-        <label className="input-label" >Repeat Password</label>
+        <label className="input-label" >Confirm Password</label>
         <input
           className='input-field'
           type='password'
           name='repeat_password'
-          placeholder='Repeat Password'
+          placeholder='Re-enter Password'
           value={repeatPassword}
           onChange={updateRepeatPassword}
-          required={true}
         ></input>
       </div>
-      <button className='login-button' type='submit'>Sign Up</button>
+      <button className='login-button' type='submit'>LET'S GO!</button>
     </form>
   );
 };

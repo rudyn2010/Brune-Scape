@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { createACard } from "../../store/card";
@@ -12,12 +12,18 @@ const CreateCardForm = ({ closeModal }) => {
     const [ answer, setAnswer ] = useState("");
 
     const [ errors, setErrors ] = useState([]);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
 
     const currUser = useSelector(state => state.session.user);
     const { deckId } = useParams();
 
     const onSubmit = async (e) => {
         e.preventDefault();
+
+        setIsSubmitted(true)
+
+        if (errors.length) return
 
         let new_card = {
             question,
@@ -35,10 +41,18 @@ const CreateCardForm = ({ closeModal }) => {
         }
     }
 
+    useEffect(() => {
+        let errors = []
+        if (question.length < 2 || question.length > 254) errors.push("Question: Question must be between 1 - 255 chars")
+        if (answer.length > 254 || answer.length < 2) errors.push("Answer: Answer must be between 1 - 255 chars")
+        setErrors(errors)
+    }, [ question, answer ]);
+
+
     return (
         <form className='login-form' onSubmit={onSubmit}>
             <div className='error-container'>
-            {errors.map((error, ind) => (
+            {isSubmitted && errors.map((error, ind) => (
                 <div key={ind}>
                     <div className='error-div'>
                         <img
