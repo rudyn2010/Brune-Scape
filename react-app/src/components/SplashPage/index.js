@@ -35,7 +35,24 @@ const SplashPage = () => {
                     Flashcards for serious gamers.
                 </h2>
             </div>
-
+            <div className="about-links">
+                <div className="modal-div-nb">
+                    <a
+                    href="https://github.com/rudyn2010"
+                    target="_blank"
+                    className="login-modal-btn a-links">
+                        GitHub
+                    </a>
+                </div>
+                <div className="modal-div-nb">
+                    <a
+                    href="https://www.linkedin.com/in/rudy-nguyen-454b0a242/"
+                    target="_blank"
+                    className="login-modal-btn a-links">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
         </div>
     );
 
