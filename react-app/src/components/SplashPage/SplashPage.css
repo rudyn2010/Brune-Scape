@@ -11,18 +11,18 @@
 
 .splash-nav {
     width: 100vw;
-    height: 125px;
+    height: 155px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 8px;
+    padding: 25px;
 }
 
 .splash-text-container {
     width: 75%;
     margin-left: 69px;
     position: relative;
-    top: 235px;
+    top: 115px;
     gap: 5px;
 }
 
@@ -58,4 +58,19 @@
     width: 155px;
     height: 98px;
     color: white;
+}
+
+.about-links {
+    display: flex;
+    gap: 10px;
+    width: 100vw;
+    bottom: 25px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.a-links {
+    cursor: pointer;
+    text-decoration: none;
 }
