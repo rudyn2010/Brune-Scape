@@ -16,9 +16,6 @@ const CardsPage = () => {
 
 
     const curr_cards = useSelector((state) => Object.values(state.cards));
-    const decks = useSelector((state) => state.decks);
-
-    console.log("*******deck******", decks[deckId])
 
     const deck_cards = curr_cards.filter((x) => x.deck_id == deckId);
 
@@ -44,7 +41,7 @@ const CardsPage = () => {
                     ><i class="fa-solid fa-arrow-left"></i>
                     </div>
                     <div>
-                        {decks[deckId].name} - Cards
+                        Cards
                     </div>
                 </div>
                 <div className="decks-plus">
