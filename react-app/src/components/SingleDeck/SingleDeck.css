@@ -6,7 +6,9 @@
     padding-right: 10px;
     align-items: center;
     border-bottom: 1px solid #6B7B17;
-    word-break: break-all;
+    word-break: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .deck-link {
