@@ -7,3 +7,9 @@
   padding: 0 50px;
   width: 915px;
 }
+
+.user-navbar-logout {
+  display: flex;
+  justify-content: flex-end;
+  padding: 25px 45px;
+}

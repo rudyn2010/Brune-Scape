@@ -4,6 +4,7 @@ import { NavLink, useHistory, useParams } from "react-router-dom";
 import { getCurrUsersCards } from "../../store/card";
 import CreateCardModal from "../CreateCardModal";
 import SingleCard from "../SingleCard";
+import "./CardsPage.css"
 
 const CardsPage = () => {
 
@@ -15,6 +16,9 @@ const CardsPage = () => {
 
 
     const curr_cards = useSelector((state) => Object.values(state.cards));
+    const decks = useSelector((state) => state.decks);
+
+    console.log("*******deck******", decks[deckId])
 
     const deck_cards = curr_cards.filter((x) => x.deck_id == deckId);
 
@@ -34,7 +38,14 @@ const CardsPage = () => {
             <div className="scroll-top"></div>
             <div className="decks-header">
                 <div className="decks-text">
-                    CARDS
+                    <div
+                    className="cards-back-arrow"
+                    onClick={() => history.push("/decks")}
+                    ><i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <div>
+                        {decks[deckId].name} - Cards
+                    </div>
                 </div>
                 <div className="decks-plus">
                     <CreateCardModal />
