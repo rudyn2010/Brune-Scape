@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DeleteCardModal from "../DeleteCardModal";
 import EditCardModal from "../EditCardModal";
-
+import "./SingleCard.css"
 
 const SingleCard = ({ card }) => {
 
@@ -18,10 +18,17 @@ const SingleCard = ({ card }) => {
             <div>
                 {showAnswer ? card?.answer : card?.question}
             </div>
-            <div>
-                <button onClick={toggle}>Show</button>
-            </div>
             <div className="icon-bar">
+                <div
+                onClick={() => toggle()}
+                style={{cursor: "pointer"}}
+                >
+                    {
+                        showAnswer ?
+                        <i class="fa-solid fa-eye-slash"></i> :
+                        <i class="fa-solid fa-eye"></i>
+                    }
+                </div>
                 <div>
                     <EditCardModal card={ card }/>
                 </div>
