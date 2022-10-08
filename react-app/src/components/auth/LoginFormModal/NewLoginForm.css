@@ -12,9 +12,10 @@
 }
 
 .input-label {
-    font: 14px;
+    font: 25px;
+    font-weight: bolder;
     font-family: "Mont Bold", Mont, sans-serif;
-    color: lightslategray;
+    color: #7B4F17;
 }
 
 .input-field {
@@ -22,6 +23,8 @@
     border: none;
     width: 340px;
     height: 34px;
+    outline: none;
+    border-bottom: 1px solid #7B4F17;
 }
 
 .login-form-buttons {
@@ -33,12 +36,16 @@
     border: none;
     color: white;
     background-color: #CECECE;
-    width: 144px;
-    height: 48px;
-    border-radius: 34px;
+    width: 150px;
+    height: 50px;
+    background: url(https://www.runescape.com/img/rsp777/hiscores/search_box.gif) no-repeat;
+    background-size: 100% 100%;
     cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 23px;
 }
 
 .login-button:hover {
-    background-color: #FF8A47;
+    border-radius: 8px;
+    box-shadow: 10px 10px 25px -10px rgba(0,0,0,0.7);
 }
