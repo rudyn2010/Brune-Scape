@@ -13,7 +13,7 @@ function CreateDeckModal() {
 
   return (
     <>
-      <div className='' onClick={() => setShowModal(true)}>
+      <div style={{cursor: "pointer"}} onClick={() => setShowModal(true)}>
         <i class="fa-solid fa-plus"></i>
       </div>
       {showModal && (

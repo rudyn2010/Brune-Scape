@@ -12,6 +12,8 @@ function DeleteCardModal({ card }) {
     const deleteCard = (e) => {
         e.preventDefault();
 
+        closeModal();
+
         dispatch(deleteACard(card.id))
     }
 

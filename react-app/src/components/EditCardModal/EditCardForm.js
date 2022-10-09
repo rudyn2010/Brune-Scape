@@ -67,7 +67,7 @@ const EditCardForm = ({ card, closeModal }) => {
                 <input
                 className='input-field'
                 type='text'
-                min={3}
+                min={2}
                 max={255}
                 placeholder='Question'
                 value={question}

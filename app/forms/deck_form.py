@@ -9,6 +9,6 @@ from wtforms.fields import (
 class DeckForm(FlaskForm):
     name = StringField("name", validators=[
         DataRequired(),
-        Length(min=3, max=50, message="Name must be between 1 and 50 characters")
+        Length(min=2, max=50, message="Deck names should be between 2 - 50 chars")
     ])
     class_id = IntegerField("class_id") #validators=[DataRequired()]

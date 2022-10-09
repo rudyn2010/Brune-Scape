@@ -41,7 +41,7 @@ const EditDeckForm = ({ deck, closeModal }) => {
 
     useEffect(() => {
         let errors = []
-        if (name.length < 2 || name.length > 50) errors.push("Name: Deck Name must be between 1 - 50 chars")
+        if (name.length < 2 || name.length > 50) errors.push("Name: Deck name should be between 2 - 50 chars")
 
         setErrors(errors)
       }, [ name ]);
@@ -66,6 +66,8 @@ const EditDeckForm = ({ deck, closeModal }) => {
                 className='input-field'
                 type='text'
                 placeholder='Name'
+                min={2}
+                max={50}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 />
