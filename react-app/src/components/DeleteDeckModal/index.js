@@ -12,6 +12,8 @@ function DeleteDeckModal({ deck }) {
     const deleteDeck = (e) => {
         e.preventDefault();
 
+        closeModal();
+
         dispatch(deleteADeck(deck.id))
     }
 

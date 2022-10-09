@@ -43,15 +43,13 @@ const GetStartedForm = ({ closeModal }) => {
 
   useEffect(() => {
     let errors = []
-    // if (!firstname) errors.push("Firstname: Enter your First Name")
-    // if (!lastname) errors.push("Lastname: Enter your Last Name")
-    if (firstname.length < 2 || firstname.length > 50) errors.push("Firstname: Firstname must be between 1 - 50 chars")
-    if (lastname.length > 50 || lastname.length < 2) errors.push("Lastname: Lastname must be between 1 - 50 chars")
-    if (/[^a-zA-Z]/.test(firstname)) errors.push('Firstname must contain alpha characters only')
-    if (/[^a-zA-Z]/.test(lastname)) errors.push('Lastname must contain alpha characters only')
+    if (firstname.length < 2 || firstname.length > 50) errors.push("Firstname: Firstname must be between 2 - 50 chars")
+    if (lastname.length > 50 || lastname.length < 2) errors.push("Lastname: Lastname must be between 2 - 50 chars")
+    if (/[^a-zA-Z]/.test(firstname)) errors.push('Name: First name must contain letters only')
+    if (/[^a-zA-Z]/.test(lastname)) errors.push('Last: Last name must contain letters only')
     if (!password) errors.push("Password: Please enter your password")
     if (!repeatPassword) errors.push("RPassword: Please re-enter your password")
-    if (password!==repeatPassword) errors.push("Password: The password and confirmed password need to match!")
+    if (password!==repeatPassword) errors.push("Password: The entered passwords don't match!")
     setErrors(errors)
   }, [ firstname, lastname, password, repeatPassword ]);
 
