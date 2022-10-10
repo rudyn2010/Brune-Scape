@@ -1,7 +1,7 @@
 .deck-container {
     display: flex;
     justify-content: space-between;
-    height: 75px;
+    min-height: 80px;
     padding-left: 10px;
     padding-right: 10px;
     align-items: center;
