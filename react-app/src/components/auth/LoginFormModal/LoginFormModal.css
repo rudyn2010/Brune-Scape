@@ -4,6 +4,11 @@
     cursor: pointer;
     font-size: 20px;
     color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login-modal-hdr {
@@ -15,6 +20,7 @@
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
+    padding-top: 20px;
 }
 
 .header-lfm {
