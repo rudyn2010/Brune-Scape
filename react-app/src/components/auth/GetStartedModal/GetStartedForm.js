@@ -47,11 +47,12 @@ const GetStartedForm = ({ closeModal }) => {
     if (lastname.length > 50 || lastname.length < 2) errors.push("Lastname: Lastname must be between 2 - 50 chars")
     if (/[^a-zA-Z]/.test(firstname)) errors.push('Name: First name must contain letters only')
     if (/[^a-zA-Z]/.test(lastname)) errors.push('Last: Last name must contain letters only')
+    if (!email) errors.push("Email: Please enter your email")
     if (!password) errors.push("Password: Please enter your password")
     if (!repeatPassword) errors.push("RPassword: Please re-enter your password")
     if (password!==repeatPassword) errors.push("Password: The entered passwords don't match!")
     setErrors(errors)
-  }, [ firstname, lastname, password, repeatPassword ]);
+  }, [ firstname, lastname, email, password, repeatPassword ]);
 
   const updateFirstname = (e) => {
     setFirstname(e.target.value);
@@ -119,7 +120,6 @@ const GetStartedForm = ({ closeModal }) => {
         <label className="input-label" >E-mail</label>
         <input
           className='input-field'
-          type='email'
           name='email'
           placeholder='E-mail'
           value={email}
