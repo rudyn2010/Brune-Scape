@@ -82,4 +82,21 @@ npm start
 
 ### Create and Register a New User
 
+<img width="927" alt="Screen Shot 2022-10-09 at 6 15 37 PM" src="https://user-images.githubusercontent.com/14317966/194788306-d0d3ac9b-76aa-4066-b419-16628435158a.png">
+
 ### Login Valid User or User Demo Login Page
+
+<img width="712" alt="Screen Shot 2022-10-09 at 6 16 28 PM" src="https://user-images.githubusercontent.com/14317966/194788348-f27a94eb-f16a-4847-bb3a-e5ad06be2554.png">
+
+### Splash Page
+
+<img width="1790" alt="Screen Shot 2022-10-09 at 6 14 22 PM" src="https://user-images.githubusercontent.com/14317966/194788268-bd209829-5312-49ae-b330-1f5b7489137e.png">
+
+### Users Decks Page
+
+<img width="1463" alt="Screen Shot 2022-10-09 at 6 17 25 PM" src="https://user-images.githubusercontent.com/14317966/194788392-b71db9dc-ecc8-4881-ae15-d3ccc72172b5.png">
+
+### Uses Cards Page
+
+<img width="1244" alt="Screen Shot 2022-10-09 at 6 18 19 PM" src="https://user-images.githubusercontent.com/14317966/194788433-ccfce1a3-677e-4f0c-abfc-01c35e749acd.png">
+
