@@ -22,4 +22,7 @@ class SignUpForm(FlaskForm):
         Length(min=2, max=50, message="Last name must be between 2 - 50 chars")
         ])
     email = StringField('email', validators=[DataRequired(), Email(), user_exists])
-    password = StringField('password', validators=[DataRequired()])
+    password = StringField('password', validators=[
+        DataRequired(),
+        Length(min=8, max=24, message="Passwords should be 8 - 24 chars long")
+        ])
