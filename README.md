@@ -2,6 +2,7 @@
 
 ## BruneScape is project clone that I made of BrainScape.
 
+Brune-Scape, a study application for RuneScape, is a website for users to create classes and flash-cards organized in decks to help aid them in their adventures around Gielinor. Create flash-cards about anything you want Runescape related to help aid you in the future as you do quests and minigames that require memorization and knowledge of the game! This application was inspired by BrainScape, with a theme derived from the Old School RuneScape website!
 
 [BruneScape Live Site](https://brunescape.herokuapp.com/)
 
