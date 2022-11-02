@@ -12,7 +12,7 @@ class Deck(db.Model):
 
     #relationships
     cards = db.relationship("Card", back_populates="deck", cascade="all, delete-orphan")
-    class_for_deck = db.relationship("Class", back_populates="decks")
+    category = db.relationship("Category", back_populates="decks")
     owner = db.relationship("User", back_populates="decks")
 
 
