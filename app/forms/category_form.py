@@ -11,3 +11,7 @@ class CategoryForm(FlaskForm):
         DataRequired(),
         Length(min=2, max=50, message="Catagory names should be between 2 - 50 chars")
     ])
+    description = StringField("description", validators=[
+        DataRequired(),
+        Length(min=2, max=200, message="Description should be between 2 - 200 chars")
+    ])
