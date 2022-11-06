@@ -8,45 +8,45 @@ const DELETE_CATEGORY = "categories/deleteCategory";
 
 
 //Action Creators:
-const actionGetAllCategories = (decks) => {
+const actionGetAllCategories = (categories) => {
     return {
         type: GET_ALL_CATEGORIES,
-        decks
+        categories
     }
 };
 
-const actionGetCurrCategories = (decks) => {
+const actionGetCurrCategories = (categories) => {
     return {
         type: GET_CURR_CATEGORIES,
-        decks
+        categories
     }
 };
 
-const actionGetOneCategory = (deck) => {
+const actionGetOneCategory = (category) => {
     return {
         type: GET_ONE_CATEGORY,
-        deck
+        category
     }
 };
 
-const actionCreateCategory = (deck) => {
+const actionCreateCategory = (category) => {
     return {
         type: CREATE_CATEGORY,
-        deck
+        category
     }
 };
 
-const actionUpdateCategory = (deck) => {
+const actionUpdateCategory = (category) => {
     return {
         type: UPDATE_CATEGORY,
-        deck
+        category
     }
 };
 
-const actionDeleteCategory = (deckId) => {
+const actionDeleteCategory = (categoryId) => {
     return {
         type: DELETE_CATEGORY,
-        deckId
+        categoryId
     }
 };
 
@@ -147,35 +147,35 @@ const categoryReducer = (state = initialState, action) => {
     let newState = {};
     switch (action.type) {
         case GET_ALL_CATEGORIES: {
-            action.decks.decks.forEach((deck) => {
-                newState[deck.id] = deck
+            action.categories.categories.forEach((category) => {
+                newState[category.id] = category
             })
             return newState
         }
         case GET_CURR_CATEGORIES: {
-            action.decks.decks.forEach((deck) => {
-                newState[deck.id] = deck
+            action.categories.categories.forEach((category) => {
+                newState[category.id] = category
             })
             return newState
         }
         case GET_ONE_CATEGORY: {
             newState = { ...state }
-            newState[action.deck.id] = action.deck
+            newState[action.category.id] = action.category
             return newState
         }
         case CREATE_CATEGORY: {
             newState = { ...state }
-            newState[action.deck.id] = action.deck
+            newState[action.category.id] = action.category
             return newState
         }
         case UPDATE_CATEGORY: {
             newState = { ...state }
-            newState[action.deck.id] = action.deck
+            newState[action.category.id] = action.category
             return newState
         }
         case DELETE_CATEGORY: {
             newState = { ...state }
-            delete newState[action.deckId]
+            delete newState[action.categoryId]
             return newState
         }
         default:
