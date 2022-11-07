@@ -1,6 +1,6 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
-from .classes import seed_classes, undo_classes
+from .categories import seed_categories, undo_categories
 from .decks import seed_decks, undo_decks
 from .cards import seed_cards, undo_cards
 
@@ -13,7 +13,7 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     seed_users()
-    seed_classes()
+    seed_categories()
     seed_decks()
     seed_cards()
     # Add other seed functions here
@@ -23,7 +23,7 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
-    undo_classes()
+    undo_categories()
     undo_decks()
     undo_cards()
     # Add other undo functions here

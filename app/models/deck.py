@@ -19,7 +19,7 @@ class Deck(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "class_id": self.class_id,
+            "category_id": self.category_id,
             "owner_id": self.owner_id,
             "name": self.name,
             "cards": [card.id for card in self.cards]

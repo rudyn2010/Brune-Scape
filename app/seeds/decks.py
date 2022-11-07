@@ -5,17 +5,17 @@ from app.models import db, Deck
 def seed_decks():
     deck1 = Deck(
         owner_id=1,
-        class_id=1,
+        category_id=1,
         name='Slayer',
         )
     deck2 = Deck(
         owner_id=1,
-        class_id=2,
+        category_id=2,
         name='Quests'
         )
     deck3 = Deck(
         owner_id=1,
-        class_id=3,
+        category_id=3,
         name='General',
         )
 
