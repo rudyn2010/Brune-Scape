@@ -36,6 +36,11 @@ const DecksPage = () => {
         <div className="decks-container">
             <div className="scroll-top"></div>
             <div className="decks-header">
+                <div
+                    className="cards-back-arrow"
+                    onClick={() => history.goBack()}
+                    ><i class="fa-solid fa-arrow-left"></i>
+                    </div>
                 <div className="decks-text">
                     DECKS
                 </div>

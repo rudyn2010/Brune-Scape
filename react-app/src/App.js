@@ -41,7 +41,7 @@ function App() {
           <UserNavBar />
           <DecksPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/decks/:deckId/cards' >
+        <ProtectedRoute path='/categories/:categoryId/decks/:deckId/cards' >
           <UserNavBar />
           <CardsPage />
         </ProtectedRoute>

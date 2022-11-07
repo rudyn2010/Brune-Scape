@@ -11,7 +11,7 @@ const CardsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const { deckId } = useParams();
+    const { deckId, categoryId } = useParams();
     const [ isLoaded, setIsLoaded ] = useState(false);
 
 
@@ -37,11 +37,11 @@ const CardsPage = () => {
                 <div className="decks-text">
                     <div
                     className="cards-back-arrow"
-                    onClick={() => history.push("/decks")}
+                    onClick={() => history.goBack()}
                     ><i class="fa-solid fa-arrow-left"></i>
                     </div>
                     <div>
-                        Cards
+                        CARDS
                     </div>
                 </div>
                 <div className="decks-plus">

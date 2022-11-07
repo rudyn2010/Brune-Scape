@@ -10,7 +10,7 @@ const SingleDeck = ({ deck }) => {
         <div className="deck-container">
             <NavLink
             className="deck-link"
-            to={`/decks/${deck.id}/cards`}>
+            to={`/categories/${deck.category_id}/decks/${deck.id}/cards`}>
                 <div className="deck-text">
                     {deck?.name}
                 </div>
