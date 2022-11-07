@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import DeleteCategoryModal from "../DeleteCategoryModal";
 import EditCategoryModal from "../EditCategoryModal";
-import "./SingleDeck.css";
 
 
 const SingleCategory = ({ category }) => {

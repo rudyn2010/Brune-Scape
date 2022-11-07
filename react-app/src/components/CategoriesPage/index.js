@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { getCurrUsersCategories } from "../../store/category";
-import CreateDeckModal from "../CreateDeckModal";
-import SingleDeck from "../SingleDeck";
-import "./DecksPage.css"
+import CreateCategoryModal from "../CreateCategoryModal";
+import SingleCategory from "../SingleCategory";
+
 
 const CategoriesPage = () => {
 
@@ -19,7 +19,7 @@ const CategoriesPage = () => {
         <div
         key={ i }
         className="single-deck-div">
-            <SingleDeck deck={ category }/>
+            <SingleCategory category={ category } />
         </div>
     ));
 
@@ -36,7 +36,7 @@ const CategoriesPage = () => {
                     CATEGORIES
                 </div>
                 <div className="decks-plus">
-                    <CreateDeckModal />
+                    <CreateCategoryModal />
                 </div>
             </div>
             <div className="decks-display-container">

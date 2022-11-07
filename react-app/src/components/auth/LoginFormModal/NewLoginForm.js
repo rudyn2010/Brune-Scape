@@ -21,7 +21,7 @@ const NewLoginForm = ({ closeModal }) => {
       setErrors(data);
     } else {
       closeModal();
-      history.push("/decks")
+      history.push("/categories")
     }
   };
 

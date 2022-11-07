@@ -37,7 +37,7 @@ function App() {
           <UserNavBar />
           <CategoriesPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/decks' exact={true} >
+        <ProtectedRoute path='/categories/:categoryId/decks' exact={true} >
           <UserNavBar />
           <DecksPage />
         </ProtectedRoute>
