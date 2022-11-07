@@ -5,14 +5,14 @@ class Deck(db.Model):
     __tablename__ = "decks"
 
     id = db.Column(db.Integer, primary_key=True)
-    class_id = db.Column(db.Integer, db.ForeignKey("classes.id")) #nullable=False
+    category_id = db.Column(db.Integer, db.ForeignKey("categories.id"), nullable=False) #nullable=False
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     name = db.Column(db.String(50), nullable=False)
 
     #relationships
-    cards = db.relationship("Card", back_populates="deck", cascade="all, delete-orphan")
     category = db.relationship("Category", back_populates="decks")
+    cards = db.relationship("Card", back_populates="deck", cascade="all, delete-orphan")
     owner = db.relationship("User", back_populates="decks")
 
 

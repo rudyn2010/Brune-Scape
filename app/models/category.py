@@ -12,7 +12,7 @@ class Category(db.Model):
 
     #relationships
     decks = db.relationship("Deck", back_populates="category", cascade="all, delete-orphan")
-    owner = db.relationship("User", back_populates="classes")
+    owner = db.relationship("User", back_populates="categories")
 
 
     def to_dict(self):
