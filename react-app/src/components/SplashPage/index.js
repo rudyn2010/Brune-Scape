@@ -12,7 +12,8 @@ const SplashPage = () => {
     const sessionUser = useSelector((state) => state.session.user);
 
     if (sessionUser) {
-        history.push("/decks")
+        // history.push("/decks")
+        history.push("/categories")
     }
 
     return (

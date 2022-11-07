@@ -4,11 +4,12 @@ import { useDispatch } from 'react-redux';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
+import CategoriesPage from './components/CategoriesPage';
 import DecksPage from './components/DecksPage';
-import { getAllCards, getCurrUsersCards } from './store/card';
 import CardsPage from './components/CardsPage';
 import SplashPage from './components/SplashPage';
 import UserNavBar from './components/UserNavBar';
+import { getAllCards, getCurrUsersCards } from './store/card';
 
 
 function App() {
@@ -32,11 +33,15 @@ function App() {
         <Route path="/" exact={true} >
           <SplashPage />
         </Route>
-        <ProtectedRoute path='/decks' exact={true} >
+        <ProtectedRoute path='/categories' exact={true} >
+          <UserNavBar />
+          <CategoriesPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/categories/:categoryId/decks' exact={true} >
           <UserNavBar />
           <DecksPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/decks/:deckId/cards'>
+        <ProtectedRoute path='/categories/:categoryId/decks/:deckId/cards' >
           <UserNavBar />
           <CardsPage />
         </ProtectedRoute>

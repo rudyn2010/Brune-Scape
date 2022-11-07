@@ -1,26 +1,25 @@
 import { NavLink } from "react-router-dom";
-import DeleteDeckModal from "../DeleteDeckModal";
-import EditDeckModal from "../EditDeckModal";
-import "./SingleDeck.css";
+import DeleteCategoryModal from "../DeleteCategoryModal";
+import EditCategoryModal from "../EditCategoryModal";
 
 
-const SingleDeck = ({ deck }) => {
+const SingleCategory = ({ category }) => {
 
     return (
         <div className="deck-container">
             <NavLink
             className="deck-link"
-            to={`/categories/${deck.category_id}/decks/${deck.id}/cards`}>
+            to={`/categories/${category.id}/decks`}>
                 <div className="deck-text">
-                    {deck?.name}
+                    {category?.name}
                 </div>
             </NavLink>
             <div className="icon-bar">
                 <div>
-                    <EditDeckModal deck={ deck } />
+                    <EditCategoryModal category={ category } />
                 </div>
                 <div>
-                    <DeleteDeckModal deck={ deck } />
+                    <DeleteCategoryModal category={ category } />
                 </div>
                 <div></div>
             </div>
@@ -28,4 +27,4 @@ const SingleDeck = ({ deck }) => {
     )
 };
 
-export default SingleDeck;
+export default SingleCategory;

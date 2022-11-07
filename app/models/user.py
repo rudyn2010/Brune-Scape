@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
 
 
     #relationships
-    classes = db.relationship("Class", back_populates="owner")
+    categories = db.relationship("Category", back_populates="owner")
     decks = db.relationship("Deck", back_populates="owner")
     cards = db.relationship("Card", back_populates="owner")
 
@@ -36,7 +36,7 @@ class User(db.Model, UserMixin):
             "first_name": self.first_name,
             "last_name": self.last_name,
             'email': self.email,
-            "classes": [s_class.id for s_class in self.classes],
+            "categories": [category.id for category in self.categories],
             "decks": [deck.id for deck in self.decks],
             "cards": [card.id for card in self.cards]
         }

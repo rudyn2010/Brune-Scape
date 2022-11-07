@@ -58,8 +58,8 @@ def seed_cards():
         answer = "Jagex"
         )
     card10 = Card(
-        deck_id = 4,
-        owner_id=2,
+        deck_id = 3,
+        owner_id=1,
         question = "Which company makes RuneScape 3?",
         answer = "Jagex"
         )

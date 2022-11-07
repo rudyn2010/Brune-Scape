@@ -4,30 +4,26 @@ from app.models import db, Deck
 # Adds a demo user, you can add other users here if you want
 def seed_decks():
     deck1 = Deck(
-        class_id=1,
         owner_id=1,
+        category_id=1,
         name='Slayer',
         )
     deck2 = Deck(
-        class_id=1,
         owner_id=1,
+        category_id=2,
         name='Quests'
         )
     deck3 = Deck(
-        class_id=2,
         owner_id=1,
+        category_id=3,
         name='General',
-        )
-    deck4 = Deck(
-        owner_id=2,
-        name='General 2',
         )
 
 
     db.session.add(deck1)
     db.session.add(deck2)
     db.session.add(deck3)
-    db.session.add(deck4)
+
 
     db.session.commit()
 
