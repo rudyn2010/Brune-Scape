@@ -1,0 +1,6 @@
+.category-description {
+    color: black;
+    padding-top: 3px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
