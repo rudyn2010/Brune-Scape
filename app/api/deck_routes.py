@@ -55,7 +55,7 @@ def create_new_deck():
 
     if form.validate_on_submit():
         new_deck = Deck(
-            class_id = form.data['class_id'],
+            category_id = form.data['category_id'],
             owner_id = current_user.id,
             name = form.data['name']
         )
