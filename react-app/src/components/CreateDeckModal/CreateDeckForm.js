@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { createADeck } from "../../store/deck";
 import hitsplat from "../../images/hitsplat.png"
 
@@ -13,6 +14,9 @@ const CreateDeckForm = ({ closeModal }) => {
     const [ errors, setErrors ] = useState([]);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
+    const { categoryId } = useParams();
+
+    console.log(categoryId)
 
     const currUser = useSelector(state => state.session.user);
 
@@ -27,7 +31,7 @@ const CreateDeckForm = ({ closeModal }) => {
 
         let new_deck = {
             name,
-            // class_id: classId,
+            category_id: categoryId,
             owner_id: currUser.id
         }
 

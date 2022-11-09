@@ -11,4 +11,4 @@ class DeckForm(FlaskForm):
         DataRequired(),
         Length(min=2, max=50, message="Deck names should be between 2 - 50 chars")
     ])
-    class_id = IntegerField("class_id") #validators=[DataRequired()]
+    category_id = IntegerField("category_id") #validators=[DataRequired()]
