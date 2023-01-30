@@ -6,7 +6,7 @@ function MasteryTracker({card}) {
 
     const dispatch = useDispatch();
 
-    const handleMastery = (e, mastery) => {
+    const handleMasteryChange = (e, mastery) => {
 
         e.preventDefault();
 
@@ -14,7 +14,7 @@ function MasteryTracker({card}) {
             question: card.question,
             answer: card.answer,
             cardId: card.id,
-            owner_id: currUser.id,
+            owner_id: card.owner_id,
             deck_id: card.deck_id,
             mastery
         };
