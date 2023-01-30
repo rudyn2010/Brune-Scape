@@ -84,6 +84,9 @@ def edit_a_card(cardId):
         edited_card.question = form.data["question"]
         edited_card.answer = form.data["answer"]
 
+        if form.data["mastery"]:
+            edited_card.mastery = form.data["mastery"]
+
         db.session.commit()
 
         return edited_card.to_dict()
