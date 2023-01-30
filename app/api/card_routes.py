@@ -78,18 +78,18 @@ def edit_a_card(cardId):
     form = CardForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    edited_card = Card.query.get_or_404(cardId)
+    card_to_edit = Card.query.get_or_404(cardId)
 
     if form.validate_on_submit():
-        edited_card.question = form.data["question"]
-        edited_card.answer = form.data["answer"]
+        card_to_edit.question = form.data["question"]
+        card_to_edit.answer = form.data["answer"]
 
         if form.data["mastery"]:
-            edited_card.mastery = form.data["mastery"]
+            card_to_edit.mastery = form.data["mastery"]
 
         db.session.commit()
 
-        return edited_card.to_dict()
+        return card_to_edit.to_dict()
 
     else:
         return {
