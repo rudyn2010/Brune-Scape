@@ -60,11 +60,9 @@ const MasteryTracker = ({ card }) => {
                 </button>
             </div>
             <div className="scale">
-                <div>Bad</div>
                 <div>Poor</div>
-                <div>Fair</div>
-                <div>Good</div>
-                <div>Excellent</div>
+                <div> - </div>
+                <div>Aced</div>
             </div>
         </div>
     )

@@ -19,7 +19,7 @@ class Deck(db.Model):
             return 0
         else:
             mastery = sum([card.mastery for card in self.cards]) / (len(self.cards) * 5)
-            return mastery * 100
+            return round(mastery * 100)
 
     def to_dict(self):
         return {

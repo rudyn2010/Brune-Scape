@@ -14,7 +14,7 @@ const SingleCard = ({ card }) => {
 
 
     return (
-        <>
+        <div className="deck-mastery">
             <div className="deck-container">
                 <div>
                     {showAnswer ? card?.answer : card?.question}
@@ -39,7 +39,7 @@ const SingleCard = ({ card }) => {
                 </div>
             </div>
             <MasteryTracker card={ card }/>
-        </>
+        </div>
     )
 };
 
