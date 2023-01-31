@@ -1,11 +1,17 @@
+.deck-mastery {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+}
+
 .deck-container {
     display: flex;
     justify-content: space-between;
-    min-height: 80px;
+    min-height: 65px;
     padding-left: 10px;
     padding-right: 10px;
     align-items: center;
-    border-bottom: 1px solid #6B7B17;
+    border-bottom: 1px dotted #6B7B17;
     word-break: break-word;
     word-wrap: break-word;
     white-space: pre-wrap;

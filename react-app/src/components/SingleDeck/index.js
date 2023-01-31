@@ -8,13 +8,14 @@ const SingleDeck = ({ deck }) => {
 
     return (
         <div className="deck-container">
-            <NavLink
-            className="deck-link"
-            to={`/categories/${deck.category_id}/decks/${deck.id}/cards`}>
+            <NavLink className="deck-link" to={`/categories/${deck.category_id}/decks/${deck.id}/cards`}>
                 <div className="deck-text">
                     {deck?.name}
                 </div>
             </NavLink>
+            <div className="mastery-percentage">
+                {deck?.mastery}% Learned!
+            </div>
             <div className="icon-bar">
                 <div>
                     <EditDeckModal deck={ deck } />
@@ -22,7 +23,6 @@ const SingleDeck = ({ deck }) => {
                 <div>
                     <DeleteDeckModal deck={ deck } />
                 </div>
-                <div></div>
             </div>
         </div>
     )

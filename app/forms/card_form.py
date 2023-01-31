@@ -5,7 +5,6 @@ from wtforms.fields import (
     BooleanField, SelectField, DateField, StringField, PasswordField, SubmitField, TextAreaField, TimeField, IntegerField
 )
 
-
 class CardForm(FlaskForm):
     question = StringField("question", validators=[
         DataRequired(),
@@ -16,3 +15,4 @@ class CardForm(FlaskForm):
         Length(min=2, max=255, message="Answer must be between 1 - 255 chars")
         ])
     deck_id = IntegerField("deck_id", validators=[DataRequired()])
+    mastery = IntegerField('mastery')

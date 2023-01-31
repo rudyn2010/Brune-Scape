@@ -1,0 +1,29 @@
+.mastery-display{
+    width: 665px;
+    height: 85px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #7B4F17;
+}
+
+.mastery-display-header{
+    padding-top: 10px;
+}
+
+.number-display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.mastery-number{
+    cursor: pointer;
+}
+
+.scale{
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+    padding-top: 3px;
+}
