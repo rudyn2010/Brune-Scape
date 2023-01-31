@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { updateACard } from "../../store/card";
 import "./MasteryTracker.css";
 
-function MasteryTracker({card}) {
+const MasteryTracker = ({ card }) => {
 
     const dispatch = useDispatch();
 
@@ -30,31 +30,31 @@ function MasteryTracker({card}) {
             <div className="number-display">
                 <button
                     className="mastery-number"
-                    onClick={(e) => handleMastery(e, 1)}
+                    onClick={(e) => handleMasteryChange(e, 1)}
                 >
                  1
                 </button>
                 <button
                     className="mastery-number"
-                    onClick={(e) => handleMastery(e, 2)}
+                    onClick={(e) => handleMasteryChange(e, 2)}
                 >
                  2
                 </button>
                 <button
                     className="mastery-number"
-                    onClick={(e) => handleMastery(e, 3)}
+                    onClick={(e) => handleMasteryChange(e, 3)}
                 >
                  3
                 </button>
                 <button
                     className="mastery-number"
-                    onClick={(e) => handleMastery(e, 4)}
+                    onClick={(e) => handleMasteryChange(e, 4)}
                 >
                  4
                 </button>
                 <button
                     className="mastery-number"
-                    onClick={(e) => handleMastery(e, 5)}
+                    onClick={(e) => handleMasteryChange(e, 5)}
                 >
                  5
                 </button>
