@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import DeleteCardModal from "../DeleteCardModal";
 import EditCardModal from "../EditCardModal";
 import MasteryTracker from "../MasteryTracker";
